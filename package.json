@@ -1,0 +1,21 @@
+{
+  "name": "nodebackend",
+  "version": "1.0.0",
+  "description": "backend for my application",
+  "main": "server.js",
+  "scripts": {
+   
+    "start": "node server.js",
+    "dev":"nodemon src/app.js"
+
+  },
+  "keywords": [
+    "Nodejs",
+    "javascript"
+  ],
+  "author": "vamshi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
