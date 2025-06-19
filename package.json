@@ -4,10 +4,8 @@
   "description": "backend for my application",
   "main": "server.js",
   "scripts": {
-   
     "start": "node server.js",
-    "dev":"nodemon src/app.js"
-
+    "dev": "nodemon src/app.js"
   },
   "keywords": [
     "Nodejs",
@@ -16,6 +14,7 @@
   "author": "vamshi",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongoose": "^8.16.0"
   }
 }
