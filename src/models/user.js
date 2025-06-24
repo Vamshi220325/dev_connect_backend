@@ -55,15 +55,12 @@ const UserSchema=mongoose.Schema({
     },
     photoURL:{
         type:String,
-        validate(value){
-            const isValidURL=validator.isURL(value);
-            if(!isValidURL)
-            {throw new Error("Photo URL is not Valid")}
-        }
+       
+        default:"https://geographyandyou.com/images/user-profile.png"
     },
     About:{
         type:String,
-        default:"Default value"
+        default:"This is the Default about the user"
     },
     Skills:{
         type:[String],

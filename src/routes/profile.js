@@ -5,7 +5,7 @@ const bcrypt=require("bcrypt");
 const {User}=require("../models/user")
 const validator=require("validator")
 const validateProfileEdit=require("../utils/validateProfileEdit")
-profileRouter.get("/profile",userAuth,async (req,res)=>{
+profileRouter.get("/profile/view",userAuth,async (req,res)=>{
 
     try{
         
@@ -17,7 +17,7 @@ profileRouter.get("/profile",userAuth,async (req,res)=>{
             res.status(404).send("ERROR : Please Login Again")
     }
 });
-profileRouter.patch("/profile/edit",userAuth,async (req,res)=>{
+profileRouter.post("/profile/edit",userAuth,async (req,res)=>{
 
    try{
       if(!validateProfileEdit(req)){
@@ -26,15 +26,13 @@ profileRouter.patch("/profile/edit",userAuth,async (req,res)=>{
       const loggedInUser=req.user;
       Object.keys(req.body).forEach((key)=>(loggedInUser[key]=req.body[key]));
       await loggedInUser.save();
-      res.json(
-        {
-            message:"Profile is Updated Succesfully",
-            data:loggedInUser
-        })
+      res.json({
+        data:loggedInUser
+      });
 
    }
    catch(err)
-   {
+   { 
     res.status(400).send("ERROR : "+err.message)
    }
 

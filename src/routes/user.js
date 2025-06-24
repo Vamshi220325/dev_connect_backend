@@ -4,7 +4,7 @@ const {User}=require("../models/user")
 const ConnectionRequest = require("../models/connectionRequest");
 const { userAuth } = require("../middlewares/auth");
 const userRouter=express.Router();
-const USER_SAFE_DATA="firstName lastName About Skills photoURL";
+const USER_SAFE_DATA="firstName lastName About Skills photoURL age gender";
 userRouter.get("/user/requests/received",userAuth,async (req,res)=>{
     try{
         const loggedInUser=req.user;
